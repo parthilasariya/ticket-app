@@ -23,7 +23,7 @@
             }
         </style>
     </head>
-    
+
     <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
         <!-- Header with Rogers Logo and Login -->
         <header class="w-full bg-white dark:bg-gray-800 shadow-sm">
@@ -31,16 +31,15 @@
                 <div class="flex items-center justify-between h-16">
                     <!-- Rogers Logo on Left -->
                     <div class="flex-shrink-0">
-                        <img src="{{ asset('images/rogers-brand-red.svg') }}" alt="Rogers Logo" class="h-8 w-auto">
+                        <!-- Light mode logo (red) -->
+                        <img src="{{ asset('images/rogers-brand-red.png') }}" alt="Rogers Logo" class="h-8 w-auto dark:hidden">
+                        <!-- Dark mode logo (white) -->
+                        <img src="{{ asset('images/rogers-brand-white.png') }}" alt="Rogers Logo" class="h-8 w-auto hidden dark:block">
                     </div>
                     
                     <!-- Login Button and Dark Mode Toggle on Right -->
                     @if (Route::has('login'))
                         <nav class="flex items-center gap-4">
-                            <!-- Dark Mode Toggle -->
-                            <div class="fixed top-4 right-4">
-                                <x-dark-mode-toggle />
-                            </div>
 
                             @auth
                                 <a
@@ -52,11 +51,15 @@
                             @else
                                 <a
                                     href="{{ route('login') }}"
-                                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+                                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-rogers-red hover:bg-rogers-red transition-colors duration-200"
                                 >
                                     Log in
                                 </a>
                             @endauth
+                            <!-- Dark Mode Toggle -->
+                            <div class="fixed top-4 right-4">
+                                <x-dark-mode-toggle />
+                            </div>
                         </nav>
                     @endif
                 </div>

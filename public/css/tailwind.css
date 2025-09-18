@@ -15,9 +15,22 @@ body {
 .bg-white { background-color: #ffffff; }
 .bg-blue-600 { background-color: #2563eb; }
 .bg-blue-700 { background-color: #1d4ed8; }
+.bg-red-800 { background-color: #b91c1c; }
 .bg-gray-300 { background-color: #d1d5db; }
+
+/* Rogers Custom Colors */
+.bg-rogers-red { background-color: #DA291C; }
+.bg-rogers-navy { background-color: #1A365D; }
+.text-rogers-red { color: #DA291C; }
+.text-rogers-navy { color: #1A365D; }
+.border-rogers-red { border-color: #DA291C; }
+.border-rogers-navy { border-color: #1A365D; }
 .bg-gray-50:hover { background-color: #f3f4f6; }
 .bg-blue-700:hover { background-color: #1e40af; }
+
+/* Rogers Custom Colors Hover States */
+.bg-rogers-red:hover { background-color: #c41e3a; }
+.bg-rogers-navy:hover { background-color: #152a3e; }
 
 .text-gray-900 { color: #111827; }
 .text-gray-600 { color: #4b5563; }
@@ -65,6 +78,11 @@ body {
 .min-h-screen { min-height: 100vh; }
 
 .block { display: block; }
+.hidden { display: none; }
+
+/* Dark mode utilities */
+.dark .dark\:hidden { display: none; }
+.dark .dark\:block { display: block; }
 .hidden { display: none; }
 
 .text-center { text-align: center; }

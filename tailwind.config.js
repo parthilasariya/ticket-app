@@ -4,15 +4,12 @@ module.exports = {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
-    "./app/**/*.php",
+    "./app/**/*.php"
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        'sans': ['Instrument Sans', 'sans-serif'],
-      },
-    },
+    }
   },
-  plugins: [],
-  darkMode: 'class',
+    plugins: [],
 }
