@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Ticket App</title>
+
+        <link rel="icon" href="/favicon.ico" sizes="any">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+
+        <!-- Tailwind CSS -->
+        <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
+        
+        <style>
+            body {
+                font-family: 'Instrument Sans', sans-serif;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+        <!-- Header with Rogers Logo and Login -->
+        <header class="w-full bg-white dark:bg-gray-800 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <!-- Rogers Logo on Left -->
+                    <div class="flex-shrink-0">
+                        <img src="{{ asset('images/Rogers-logo.svg') }}" alt="Rogers Logo" class="h-8 w-auto">
+                    </div>
+                    
+                    <!-- Login Button on Right -->
+                    @if (Route::has('login'))
+                        <nav class="flex items-center gap-4">
+                            @auth
+                                <a
+                                    href="{{ url('/dashboard') }}"
+                                    class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200"
+                                >
+                                    Dashboard
+                                </a>
+                            @else
+                                <a
+                                    href="{{ route('login') }}"
+                                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+                                >
+                                    Log in
+                                </a>
+                            @endauth
+                        </nav>
+                    @endif
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div class="max-w-md w-full text-center">
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Welcome to Ticket App</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Your ticketing solution powered by Rogers</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+                    © {{ date('Y') }} Ticket-App. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
