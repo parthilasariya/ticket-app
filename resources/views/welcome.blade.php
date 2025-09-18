@@ -23,14 +23,15 @@
             }
         </style>
     </head>
-    <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+    
+    <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
         <!-- Header with Rogers Logo and Login -->
         <header class="w-full bg-white dark:bg-gray-800 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <!-- Rogers Logo on Left -->
                     <div class="flex-shrink-0">
-                        <img src="{{ asset('images/Rogers-logo.svg') }}" alt="Rogers Logo" class="h-8 w-auto">
+                        <img src="{{ asset('images/rogers-brand-red.svg') }}" alt="Rogers Logo" class="h-8 w-auto">
                     </div>
                     
                     <!-- Login Button and Dark Mode Toggle on Right -->
