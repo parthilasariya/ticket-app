@@ -33,9 +33,25 @@
                         <img src="{{ asset('images/Rogers-logo.svg') }}" alt="Rogers Logo" class="h-8 w-auto">
                     </div>
                     
-                    <!-- Login Button on Right -->
+                    <!-- Login Button and Dark Mode Toggle on Right -->
                     @if (Route::has('login'))
                         <nav class="flex items-center gap-4">
+                            <!-- Dark Mode Toggle -->
+                            <button 
+                                id="darkModeToggle"
+                                class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200"
+                                aria-label="Toggle dark mode"
+                            >
+                                <!-- Sun Icon (Light Mode) -->
+                                <svg id="sunIcon" class="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                </svg>
+                                <!-- Moon Icon (Dark Mode) -->
+                                <svg id="moonIcon" class="h-5 w-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                </svg>
+                            </button>
+
                             @auth
                                 <a
                                     href="{{ url('/dashboard') }}"
@@ -73,5 +89,56 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Dark Mode Toggle Script -->
+        <script>
+            // Check for saved dark mode preference or default to system preference
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            
+            // Function to update icons and theme
+            function updateTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                    localStorage.setItem('darkMode', 'true');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                    localStorage.setItem('darkMode', 'false');
+                }
+            }
+            
+            // Initialize theme based on saved preference or system preference
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('darkMode');
+                if (savedTheme !== null) {
+                    updateTheme(savedTheme === 'true');
+                } else {
+                    // Check system preference
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    updateTheme(prefersDark);
+                }
+            }
+            
+            // Toggle dark mode
+            darkModeToggle.addEventListener('click', () => {
+                const isDarkMode = document.documentElement.classList.contains('dark');
+                updateTheme(!isDarkMode);
+            });
+            
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (localStorage.getItem('darkMode') === null) {
+                    updateTheme(e.matches);
+                }
+            });
+            
+            // Initialize theme on page load
+            initializeTheme();
+        </script>
     </body>
 </html>
