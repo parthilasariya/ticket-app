@@ -7,6 +7,8 @@ module.exports = {
     "./app/**/*.php"
   ],
   darkMode: "class",
+
+  
   theme: {
     extend: {
     }

@@ -24,9 +24,9 @@
         </style>
     </head>
 
-    <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <body class="bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
         <!-- Header with Rogers Logo and Login -->
-        <header class="w-full bg-white dark:bg-gray-800 shadow-sm">
+        <header class="w-full bg-white dark:bg-gray-900 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <!-- Rogers Logo on Left -->
@@ -70,15 +70,15 @@
         <main class="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
             <div class="max-w-md w-full text-center">
                 <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Welcome to Ticket App</h1>
-                <p class="text-lg text-gray-600 dark:text-gray-400">Your ticketing solution powered by Rogers</p>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Your ticketing solution powered by Rogers Back Office</p>
             </div>
         </main>
 
         <!-- Footer -->
-        <footer class="w-full bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <footer class="w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                    © {{ date('Y') }} Ticket-App. All rights reserved.
+                    © {{ date('Y') }} Ticket-App.
                 </div>
             </div>
         </footer>
