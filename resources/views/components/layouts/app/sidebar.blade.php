@@ -15,8 +15,10 @@
             </a>
             <flux:navbar class="flex-1">
                 <flux:navbar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navbar.item>
+                <flux:navbar.item icon="ticket" :href="route('tickets')" :current="request()->routeIs('tickets')" wire:navigate>{{ __('Tickets') }}</flux:navbar.item>
+                <flux:navbar.item icon="chart-bar" :href="route('analytics')" :current="request()->routeIs('analytics')" wire:navigate>{{ __('Analytics') }}</flux:navbar.item>
+                <flux:navbar.item icon="users" :href="route('users')" :current="request()->routeIs('users')" wire:navigate>{{ __('Users') }}</flux:navbar.item>
                 <flux:navbar.item icon="folder" href="https://www.rogers.com/" target="_blank">{{ __('Rogers') }}</flux:navbar.item>
-                <flux:navbar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">{{ __('Documentation') }}</flux:navbar.item>
             </flux:navbar>
             <flux:spacer />
             <!-- Desktop User Menu -->

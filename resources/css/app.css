@@ -14,6 +14,10 @@
     --color-accent: var(--color-red-500);
     --color-accent-content: var(--color-red-600);
     --color-accent-foreground: var(--color-white);
+    --color-bg-zinc-800: var(--color-zinc-800);    
+    --color-bg-zinc-900: var(--color-zinc-900);    
+    
+
 }
 
 @layer theme {
